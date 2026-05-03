@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undavalli Karthikeya | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-card {
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(96, 165, 250, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-[#0f172a] text-slate-300">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass py-4">
+        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+            <span class="mono font-bold text-blue-400 text-xl tracking-tighter">UK_</span>
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#education" class="hover:text-blue-400 transition-colors">Education</a>
+            </div>
+            <a href="mailto:karthikeyaundavalli@outlook.com" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all">Hire Me</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="about" class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+                Cybersecurity Enthusiast
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+                Undavalli <span class="gradient-text">Karthikeya</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
+                Building secure digital experiences through network analysis, threat detection, and robust web development.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:8333805871" class="flex items-center glass px-4 py-2 rounded-lg hover:bg-white/5 transition-all">
+                    <i class="fa-solid fa-phone text-blue-400 mr-2"></i> 8333805871
+                </a>
+                <a href="mailto:karthikeyaundavalli@outlook.com" class="flex items-center glass px-4 py-2 rounded-lg hover:bg-white/5 transition-all">
+                    <i class="fa-solid fa-envelope text-blue-400 mr-2"></i> Email Me
+                </a>
+                <a href="#" target="_blank" class="flex items-center glass px-4 py-2 rounded-lg hover:bg-white/5 transition-all">
+                    <i class="fa-brands fa-linkedin text-blue-400 mr-2"></i> LinkedIn
+                </a>
+                <a href="#" target="_blank" class="flex items-center glass px-4 py-2 rounded-lg hover:bg-white/5 transition-all">
+                    <i class="fa-brands fa-github text-blue-400 mr-2"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-[#0a0f1d]">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+                <span class="text-blue-500 mono mr-4">01.</span> Technical Arsenal
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Coding -->
+                <div class="glass p-6 rounded-2xl section-card">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-code text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-3">Programming & Web</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">C / Java</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Python</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">HTML / CSS</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">OOP</span>
+                    </div>
+                </div>
+
+                <!-- Cybersecurity -->
+                <div class="glass p-6 rounded-2xl section-card">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-shield-halved text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-3">Security Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Nmap</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Wireshark</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Network Security</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Linux</span>
+                    </div>
+                </div>
+
+                <!-- Networking -->
+                <div class="glass p-6 rounded-2xl section-card">
+                    <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-network-wired text-emerald-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-3">Networking</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">TCP/IP</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">DNS</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">VPNs</span>
+                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Firewalls</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+                <span class="text-blue-500 mono mr-4">02.</span> Projects
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="glass p-8 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fa-solid fa-user-doctor text-6xl"></i>
+                    </div>
+                    <div class="text-blue-400 mono text-sm mb-2">Jan 2025 – Feb 2025</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Health AI</h3>
+                    <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                        Intelligent Healthcare Assistant built with Python Flask. Integrated IBM Granite model improving accuracy and latency by 25%.
+                    </p>
+                    <div class="flex space-x-3">
+                        <span class="text-xs font-bold text-blue-500 uppercase tracking-tighter">Python</span>
+                        <span class="text-xs font-bold text-blue-500 uppercase tracking-tighter">Flask</span>
+                        <span class="text-xs font-bold text-blue-500 uppercase tracking-tighter">IBM Granite</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass p-8 rounded-3xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fa-solid fa-lock text-6xl"></i>
+                    </div>
+                    <div class="text-purple-400 mono text-sm mb-2">Apr 2025 – May 2025</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Web Threat Detection</h3>
+                    <p class="text-slate-400 mb-6 text-sm leading-relaxed">
+                        Fraud-detection platform using MERN stack (React, Node.js, Express, MongoDB). Integrated ML model for real-time safe/fraud URL classification.
+                    </p>
+                    <div class="flex space-x-3">
+                        <span class="text-xs font-bold text-purple-500 uppercase tracking-tighter">React</span>
+                        <span class="text-xs font-bold text-purple-500 uppercase tracking-tighter">MongoDB</span>
+                        <span class="text-xs font-bold text-purple-500 uppercase tracking-tighter">ML</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Training -->
+    <section id="education" class="py-20 bg-[#0a0f1d] px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+                <span class="text-blue-500 mono mr-4">03.</span> Education & Certs
+            </h2>
+
+            <div class="space-y-12">
+                <!-- Degree -->
+                <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 relative border-l border-blue-500/20 pl-6">
+                    <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[6px] mt-2"></div>
+                    <div class="min-w-[150px] mono text-blue-400 text-sm">2022 — 2026</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">B.Tech in Computer Science Engineering</h3>
+                        <p class="text-slate-400">Swarnandhra College of Engineering & Technology</p>
+                        <div class="mt-2 inline-block px-2 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded">GPA: 8.5/10</div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 relative border-l border-blue-500/20 pl-6">
+                    <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[6px] mt-2"></div>
+                    <div class="min-w-[150px] mono text-blue-400 text-sm">Ongoing</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Certifications & Training</h3>
+                        <ul class="mt-4 space-y-3 text-slate-400 text-sm">
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-certificate text-blue-500 mr-3"></i>
+                                Java Programming Certification - GeeksforGeeks
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa-solid fa-certificate text-blue-500 mr-3"></i>
+                                Fundamentals of Cybersecurity
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 px-6">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+            <p>&copy; 2025 Undavalli Karthikeya. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#about" class="hover:text-white">Home</a>
+                <a href="#projects" class="hover:text-white">Projects</a>
+                <a href="mailto:karthikeyaundavalli@outlook.com" class="hover:text-white">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
