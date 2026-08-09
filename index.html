@@ -3,240 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undavalli Karthikeya | Portfolio</title>
+    <meta name="description" content="Portfolio of Undavalli Karthikeya — Computer Science and Engineering (Cyber Security) student, software developer and cybersecurity enthusiast.">
+    <meta name="theme-color" content="#050816">
+    <title>Undavalli Karthikeya | CSE Cyber Security</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
-        
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            background: #050816;
         }
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
         .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, .62);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(148, 163, 184, .13);
+        }
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(96,165,250,.055) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(96,165,250,.055) 1px, transparent 1px);
+            background-size: 42px 42px;
         }
         .gradient-text {
-            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            background: linear-gradient(90deg, #60a5fa, #a78bfa, #22d3ee);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
-        .section-card {
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        .glow { box-shadow: 0 0 60px rgba(59,130,246,.10); }
+        .card {
+            transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
         }
-        .section-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(96, 165, 250, 0.4);
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(96,165,250,.35);
+            box-shadow: 0 18px 50px rgba(0,0,0,.22);
+        }
+        .tag {
+            background: rgba(30,41,59,.75);
+            border: 1px solid rgba(148,163,184,.12);
+        }
+        .nav-link { transition: color .2s ease; }
+        .nav-link:hover { color: #60a5fa; }
+        .timeline-line {
+            background: linear-gradient(to bottom, #3b82f6, rgba(59,130,246,.05));
+        }
+        .fade-up {
+            animation: fadeUp .7s ease both;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="bg-[#0f172a] text-slate-300">
+
+<body class="text-slate-300">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass py-4">
-        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
-            <span class="mono font-bold text-blue-400 text-xl tracking-tighter">UK_</span>
-            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
-                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#education" class="hover:text-blue-400 transition-colors">Education</a>
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+            <a href="#home" class="mono font-bold text-blue-400 text-lg">UK<span class="text-slate-500">_</span></a>
+
+            <div class="hidden md:flex items-center gap-7 text-sm">
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#skills">Skills</a>
+                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="#education">Education</a>
+                <a class="nav-link" href="#contact">Contact</a>
             </div>
-            <a href="mailto:karthikeyaundavalli@outlook.com" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all">Hire Me</a>
+
+            <a href="mailto:karthikeyaundavalli@outlook.com"
+               class="rounded-full bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 text-sm font-semibold transition">
+                Let's Connect
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="about" class="pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-block px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
-                Cybersecurity Enthusiast
-            </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-                Undavalli <span class="gradient-text">Karthikeya</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
-                Building secure digital experiences through network analysis, threat detection, and robust web development.
-            </p>
-            
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="tel:8333805871" class="flex items-center glass px-4 py-2 rounded-lg hover:bg-white/5 transition-all">
-                    <i class="fa-solid fa-phone text-blue-400 mr-2"></i> 8333805871
-                </a>
-                <a href="mailto:karthikeyaundavalli@outlook.com" class="flex items-center glass px-4 py-2 rounded-lg hover:bg-white/5 transition-all">
-                    <i class="fa-solid fa-envelope text-blue-400 mr-2"></i> Email Me
-                </a>
-                <a href="#" target="_blank" class="flex items-center glass px-4 py-2 rounded-lg hover:bg-white/5 transition-all">
-                    <i class="fa-brands fa-linkedin text-blue-400 mr-2"></i> LinkedIn
-                </a>
-                <a href="#" target="_blank" class="flex items-center glass px-4 py-2 rounded-lg hover:bg-white/5 transition-all">
-                    <i class="fa-brands fa-github text-blue-400 mr-2"></i> GitHub
-                </a>
+    <!-- Hero -->
+    <header id="home" class="hero-grid min-h-screen flex items-center pt-24">
+        <div class="max-w-6xl mx-auto px-5 py-20 w-full">
+            <div class="max-w-4xl fade-up">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-500/25 bg-blue-500/10 text-blue-300 text-xs font-bold uppercase tracking-widest mb-7">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                    CSE — Cyber Security Student
+                </div>
+
+                <h1 class="text-5xl sm:text-6xl lg:text-8xl font-extrabold tracking-tight text-white leading-none">
+                    Undavalli
+                    <span class="gradient-text">Karthikeya</span>
+                </h1>
+
+                <p class="mono text-blue-400 mt-6 text-sm sm:text-base">
+                    Computer Science & Engineering (Cyber Security)
+                </p>
+
+                <p class="mt-6 max-w-3xl text-lg sm:text-xl text-slate-400 leading-relaxed">
+                    Building practical software and security-focused projects across
+                    <span class="text-slate-200">cybersecurity, networking, full-stack development, and AI/ML</span>.
+                    Focused on learning by building and solving real-world problems.
+                </p>
+
+                <div class="flex flex-wrap gap-4 mt-9">
+                    <a href="#projects" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition">
+                        <i class="fa-solid fa-code mr-2"></i> View Projects
+                    </a>
+                    <a href="https://github.com/Karthikeya-0" target="_blank" rel="noopener"
+                       class="px-6 py-3 rounded-xl glass hover:bg-white/5 text-white font-semibold transition">
+                        <i class="fa-brands fa-github mr-2"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener"
+                       class="px-6 py-3 rounded-xl glass hover:bg-white/5 text-white font-semibold transition">
+                        <i class="fa-brands fa-linkedin mr-2"></i> LinkedIn
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap gap-3 mt-10 text-sm">
+                    <span class="tag px-3 py-2 rounded-lg"><i class="fa-solid fa-shield-halved text-blue-400 mr-2"></i>Cybersecurity</span>
+                    <span class="tag px-3 py-2 rounded-lg"><i class="fa-solid fa-network-wired text-cyan-400 mr-2"></i>Networking</span>
+                    <span class="tag px-3 py-2 rounded-lg"><i class="fa-solid fa-laptop-code text-purple-400 mr-2"></i>Software Development</span>
+                    <span class="tag px-3 py-2 rounded-lg"><i class="fa-solid fa-brain text-emerald-400 mr-2"></i>AI / ML</span>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-[#0a0f1d]">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-                <span class="text-blue-500 mono mr-4">01.</span> Technical Arsenal
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Coding -->
-                <div class="glass p-6 rounded-2xl section-card">
-                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-code text-blue-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-white font-semibold mb-3">Programming & Web</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">C / Java</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Python</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">HTML / CSS</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">OOP</span>
-                    </div>
-                </div>
-
-                <!-- Cybersecurity -->
-                <div class="glass p-6 rounded-2xl section-card">
-                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-shield-halved text-purple-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-white font-semibold mb-3">Security Tools</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Nmap</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Wireshark</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Network Security</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Linux</span>
-                    </div>
-                </div>
-
-                <!-- Networking -->
-                <div class="glass p-6 rounded-2xl section-card">
-                    <div class="w-12 h-12 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fa-solid fa-network-wired text-emerald-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-white font-semibold mb-3">Networking</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">TCP/IP</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">DNS</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">VPNs</span>
-                        <span class="px-3 py-1 bg-slate-800 rounded text-xs">Firewalls</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-                <span class="text-blue-500 mono mr-4">02.</span> Projects
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="glass p-8 rounded-3xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fa-solid fa-user-doctor text-6xl"></i>
-                    </div>
-                    <div class="text-blue-400 mono text-sm mb-2">Jan 2025 – Feb 2025</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Health AI</h3>
-                    <p class="text-slate-400 mb-6 text-sm leading-relaxed">
-                        Intelligent Healthcare Assistant built with Python Flask. Integrated IBM Granite model improving accuracy and latency by 25%.
+    <!-- About -->
+    <section id="about" class="py-24 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="grid lg:grid-cols-[1.4fr_.8fr] gap-10 items-start">
+                <div>
+                    <p class="mono text-blue-400 text-sm mb-3">01. ABOUT</p>
+                    <h2 class="text-4xl font-bold text-white mb-6">Building with security in mind.</h2>
+                    <p class="text-slate-400 leading-8 text-lg">
+                        I am a Computer Science and Engineering student specializing in Cyber Security.
+                        My interests include network security, vulnerability assessment, web security,
+                        software engineering, and AI-powered applications.
                     </p>
-                    <div class="flex space-x-3">
-                        <span class="text-xs font-bold text-blue-500 uppercase tracking-tighter">Python</span>
-                        <span class="text-xs font-bold text-blue-500 uppercase tracking-tighter">Flask</span>
-                        <span class="text-xs font-bold text-blue-500 uppercase tracking-tighter">IBM Granite</span>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="glass p-8 rounded-3xl relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <i class="fa-solid fa-lock text-6xl"></i>
-                    </div>
-                    <div class="text-purple-400 mono text-sm mb-2">Apr 2025 – May 2025</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Web Threat Detection</h3>
-                    <p class="text-slate-400 mb-6 text-sm leading-relaxed">
-                        Fraud-detection platform using MERN stack (React, Node.js, Express, MongoDB). Integrated ML model for real-time safe/fraud URL classification.
+                    <p class="text-slate-400 leading-8 text-lg mt-5">
+                        I enjoy taking an idea from a problem statement to a working application —
+                        designing the interface, developing the backend, integrating databases or
+                        machine-learning components, and testing the result.
                     </p>
-                    <div class="flex space-x-3">
-                        <span class="text-xs font-bold text-purple-500 uppercase tracking-tighter">React</span>
-                        <span class="text-xs font-bold text-purple-500 uppercase tracking-tighter">MongoDB</span>
-                        <span class="text-xs font-bold text-purple-500 uppercase tracking-tighter">ML</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education & Training Section -->
-    <section id="education" class="py-20 bg-[#0a0f1d] px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
-                <span class="text-blue-500 mono mr-4">03.</span> Education History
-            </h2>
-
-            <div class="space-y-12">
-                <!-- University -->
-                <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 relative border-l border-blue-500/20 pl-6">
-                    <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[6px] mt-2"></div>
-                    <div class="min-w-[150px] mono text-blue-400 text-sm">2022 — 2026</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white leading-tight">B.Tech in Computer Science Engineering</h3>
-                        <p class="text-slate-400 font-medium">Swarnandhra College of Engineering & Technology</p>
-                        <div class="mt-2 inline-block px-2 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded">GPA: 8.5/10</div>
-                    </div>
                 </div>
 
-                <!-- Intermediate -->
-                <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 relative border-l border-slate-700/50 pl-6">
-                    <div class="absolute w-3 h-3 bg-slate-600 rounded-full -left-[6px] mt-2"></div>
-                    <div class="min-w-[150px] mono text-slate-500 text-sm">2020 — 2022</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white leading-tight">Intermediate (MPC)</h3>
-                        <p class="text-slate-400 font-medium">Sri Chaitanya Junior College</p>
-                        <div class="mt-2 inline-block px-2 py-1 bg-slate-800 text-slate-400 text-xs font-bold rounded">Percentage: 46%</div>
-                    </div>
-                </div>
-
-                <!-- Schooling -->
-                <div class="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 relative border-l border-slate-700/50 pl-6">
-                    <div class="absolute w-3 h-3 bg-slate-600 rounded-full -left-[6px] mt-2"></div>
-                    <div class="min-w-[150px] mono text-slate-500 text-sm">2019 — 2020</div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white leading-tight">Board of Secondary Education</h3>
-                        <p class="text-slate-400 font-medium">Sri Chaitanya School</p>
-                        <div class="mt-2 inline-block px-2 py-1 bg-slate-800 text-slate-400 text-xs font-bold rounded">Percentage: 81%</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Certifications -->
-            <div class="mt-20">
-                <h3 class="text-2xl font-bold text-white mb-8">Certifications & Training</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="glass p-4 rounded-xl flex items-start">
-                        <i class="fa-solid fa-certificate text-blue-500 mt-1 mr-4"></i>
-                        <div>
-                            <p class="text-white font-semibold">Java Programming Certification</p>
-                            <p class="text-xs text-slate-500">GeeksforGeeks • OOP, Collections, Exception Handling</p>
+                <div class="glass rounded-3xl p-7 glow">
+                    <p class="mono text-slate-500 text-xs uppercase tracking-widest mb-5">Focus Areas</p>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-shield-halved text-blue-400 mt-1"></i>
+                            <div><h3 class="text-white font-semibold">Cybersecurity</h3><p class="text-sm text-slate-500">Network & web security, security tools, threat detection</p></div>
                         </div>
-                    </div>
-                    <div class="glass p-4 rounded-xl flex items-start">
-                        <i class="fa-solid fa-certificate text-blue-500 mt-1 mr-4"></i>
-                        <div>
-                            <p class="text-white font-semibold">Fundamentals of Cybersecurity</p>
-                            <p class="text-xs text-slate-500">Academic Training • Network Analysis & Threat Detection</p>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-code text-purple-400 mt-1"></i>
+                            <div><h3 class="text-white font-semibold">Software Development</h3><p class="text-sm text-slate-500">Full-stack applications, APIs, databases and problem solving</p></div>
+                        </div>
+                        <div class="flex gap-4">
+                            <i class="fa-solid fa-robot text-cyan-400 mt-1"></i>
+                            <div><h3 class="text-white font-semibold">AI / ML</h3><p class="text-sm text-slate-500">Machine learning and Generative AI applications</p></div>
                         </div>
                     </div>
                 </div>
@@ -244,12 +175,254 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-white/5 px-6">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-            <p>&copy; 2025 Undavalli Karthikeya. All rights reserved.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#about" class="hover:text-white">Home</a>
+    <!-- Skills -->
+    <section id="skills" class="py-24 bg-[#080d1c] border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-5">
+            <p class="mono text-blue-400 text-sm mb-3">02. SKILLS</p>
+            <h2 class="text-4xl font-bold text-white mb-12">Technical Toolkit</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass card rounded-2xl p-7">
+                    <i class="fa-solid fa-shield-halved text-blue-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold text-white mt-5 mb-4">Cybersecurity</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Network Security</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Nmap</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Wireshark</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Packet Analysis</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Vulnerability Assessment</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Web Security</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Linux</span>
+                    </div>
+                </div>
+
+                <div class="glass card rounded-2xl p-7">
+                    <i class="fa-solid fa-code text-purple-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold text-white mt-5 mb-4">Programming</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Python</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Java</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">C</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">JavaScript</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">OOP</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">DSA</span>
+                    </div>
+                </div>
+
+                <div class="glass card rounded-2xl p-7">
+                    <i class="fa-solid fa-globe text-cyan-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold text-white mt-5 mb-4">Web & Backend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag px-3 py-2 rounded-lg text-sm">React</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Vite</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Node.js</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Express</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Flask</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="glass card rounded-2xl p-7">
+                    <i class="fa-solid fa-database text-emerald-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold text-white mt-5 mb-4">Databases</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag px-3 py-2 rounded-lg text-sm">MongoDB</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">MongoDB Atlas</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">SQLite</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">SQL</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">CRUD</span>
+                    </div>
+                </div>
+
+                <div class="glass card rounded-2xl p-7">
+                    <i class="fa-solid fa-brain text-pink-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold text-white mt-5 mb-4">AI / ML</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Machine Learning</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">IBM Granite</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Generative AI</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Scikit-learn</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">NLP</span>
+                    </div>
+                </div>
+
+                <div class="glass card rounded-2xl p-7">
+                    <i class="fa-solid fa-screwdriver-wrench text-orange-400 text-2xl"></i>
+                    <h3 class="text-xl font-bold text-white mt-5 mb-4">Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Git</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">GitHub</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Postman</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">VS Code</span>
+                        <span class="tag px-3 py-2 rounded-lg text-sm">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-24">
+        <div class="max-w-6xl mx-auto px-5">
+            <p class="mono text-blue-400 text-sm mb-3">03. PROJECTS</p>
+            <h2 class="text-4xl font-bold text-white mb-12">Things I've Built</h2>
+
+            <div class="grid lg:grid-cols-3 gap-6">
+
+                <article class="glass card rounded-3xl p-7 flex flex-col">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
+                            <i class="fa-solid fa-link-slash text-blue-400 text-xl"></i>
+                        </div>
+                        <a href="https://github.com/Karthikeya-0/Fraud-URL-Detection" target="_blank" rel="noopener"
+                           class="text-slate-500 hover:text-white" aria-label="Fraud URL project on GitHub">
+                            <i class="fa-brands fa-github text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="mono text-blue-400 text-xs mt-6">CYBERSECURITY • FULL STACK • ML</p>
+                    <h3 class="text-2xl font-bold text-white mt-2">Fraud URL Detection System</h3>
+                    <p class="text-slate-400 text-sm leading-7 mt-4 flex-1">
+                        A full-stack security application for checking potentially fraudulent URLs,
+                        combining a React interface, Node/Express backend, MongoDB and a Python ML inference service.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="tag px-2.5 py-1 rounded text-xs">React</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">Node.js</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">MongoDB</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">Python</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">ML</span>
+                    </div>
+                    <a href="https://github.com/Karthikeya-0/Fraud-URL-Detection" target="_blank" rel="noopener"
+                       class="mt-6 text-sm text-blue-400 hover:text-blue-300 font-semibold">
+                        View Project <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                    </a>
+                </article>
+
+                <article class="glass card rounded-3xl p-7 flex flex-col">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
+                            <i class="fa-solid fa-user-doctor text-purple-400 text-xl"></i>
+                        </div>
+                        <a href="https://github.com/Karthikeya-0/Intelligent-Healthcare-Assistant-Using-IBM-Granite"
+                           target="_blank" rel="noopener" class="text-slate-500 hover:text-white">
+                            <i class="fa-brands fa-github text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="mono text-purple-400 text-xs mt-6">AI • GENERATIVE AI • HEALTHCARE</p>
+                    <h3 class="text-2xl font-bold text-white mt-2">Intelligent Healthcare Assistant</h3>
+                    <p class="text-slate-400 text-sm leading-7 mt-4 flex-1">
+                        An educational AI healthcare assistant exploring natural-language interaction
+                        and IBM Granite-based Generative AI for health-related information.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="tag px-2.5 py-1 rounded text-xs">Python</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">IBM Granite</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">Streamlit</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">AI/ML</span>
+                    </div>
+                    <a href="https://github.com/Karthikeya-0/Intelligent-Healthcare-Assistant-Using-IBM-Granite"
+                       target="_blank" rel="noopener"
+                       class="mt-6 text-sm text-purple-400 hover:text-purple-300 font-semibold">
+                        View Project <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                    </a>
+                </article>
+
+                <article class="glass card rounded-3xl p-7 flex flex-col">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                            <i class="fa-solid fa-file-invoice-dollar text-emerald-400 text-xl"></i>
+                        </div>
+                        <a href="https://github.com/Karthikeya-0/prawn" target="_blank" rel="noopener"
+                           class="text-slate-500 hover:text-white">
+                            <i class="fa-brands fa-github text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="mono text-emerald-400 text-xs mt-6">PYTHON • DESKTOP • DATABASE</p>
+                    <h3 class="text-2xl font-bold text-white mt-2">Prawn Accounts</h3>
+                    <p class="text-slate-400 text-sm leading-7 mt-4 flex-1">
+                        A desktop accounting and billing application for customer records,
+                        transactions, payments, Excel imports and invoice generation.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="tag px-2.5 py-1 rounded text-xs">Python</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">Tkinter</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">SQLite</span>
+                        <span class="tag px-2.5 py-1 rounded text-xs">Pandas</span>
+                    </div>
+                    <a href="https://github.com/Karthikeya-0/prawn" target="_blank" rel="noopener"
+                       class="mt-6 text-sm text-emerald-400 hover:text-emerald-300 font-semibold">
+                        View Project <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-24 bg-[#080d1c] border-y border-white/5">
+        <div class="max-w-5xl mx-auto px-5">
+            <p class="mono text-blue-400 text-sm mb-3">04. EDUCATION</p>
+            <h2 class="text-4xl font-bold text-white mb-12">Education</h2>
+
+            <div class="relative">
+                <div class="absolute left-[7px] top-2 bottom-2 w-px timeline-line"></div>
+
+                <div class="relative pl-10 pb-12">
+                    <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-500/10"></span>
+                    <p class="mono text-blue-400 text-sm">2022 — 2026</p>
+                    <h3 class="text-2xl font-bold text-white mt-2">B.Tech — Computer Science & Engineering (Cyber Security)</h3>
+                    <p class="text-slate-400 mt-2">Swarnandhra College of Engineering & Technology (Autonomous), Narsapur</p>
+                </div>
+
+                <div class="relative pl-10 pb-12">
+                    <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-slate-600 ring-4 ring-slate-600/10"></span>
+                    <p class="mono text-slate-500 text-sm">2020 — 2022</p>
+                    <h3 class="text-xl font-bold text-white mt-2">Intermediate — MPC</h3>
+                    <p class="text-slate-400 mt-2">Sri Chaitanya Junior College</p>
+                </div>
+
+                <div class="relative pl-10">
+                    <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-slate-600 ring-4 ring-slate-600/10"></span>
+                    <p class="mono text-slate-500 text-sm">2019 — 2020</p>
+                    <h3 class="text-xl font-bold text-white mt-2">Secondary Education</h3>
+                    <p class="text-slate-400 mt-2">Sri Chaitanya School</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-28">
+        <div class="max-w-4xl mx-auto px-5 text-center">
+            <p class="mono text-blue-400 text-sm mb-3">05. CONTACT</p>
+            <h2 class="text-4xl sm:text-5xl font-bold text-white">Let's build something useful.</h2>
+            <p class="text-slate-400 text-lg leading-8 mt-5 max-w-2xl mx-auto">
+                Open to opportunities, collaborations, internships and projects related to
+                cybersecurity, software engineering and technology.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 mt-9">
+                <a href="mailto:karthikeyaundavalli@outlook.com"
+                   class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition">
+                    <i class="fa-solid fa-envelope mr-2"></i> Email
+                </a>
+                <a href="https://github.com/Karthikeya-0" target="_blank" rel="noopener"
+                   class="px-6 py-3 rounded-xl glass hover:bg-white/5 text-white font-semibold transition">
+                    <i class="fa-brands fa-github mr-2"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener"
+                   class="px-6 py-3 rounded-xl glass hover:bg-white/5 text-white font-semibold transition">
+                    <i class="fa-brands fa-linkedin mr-2"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/5 py-8">
+        <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+            <p>© 2026 Undavalli Karthikeya. Built with HTML, Tailwind CSS & JavaScript.</p>
+            <div class="flex gap-5">
+                <a href="https://github.com/Karthikeya-0" target="_blank" rel="noopener" class="hover:text-white">GitHub</a>
                 <a href="#projects" class="hover:text-white">Projects</a>
                 <a href="mailto:karthikeyaundavalli@outlook.com" class="hover:text-white">Contact</a>
             </div>
