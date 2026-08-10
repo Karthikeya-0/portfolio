@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="hv-locked">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,9 +120,256 @@
             transform: translateY(-2px);
         }
     </style>
+
+    <!-- Lightweight local face detector -->
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js">
+    </script>
+
 </head>
 
 <body class="text-slate-300">
+
+    <!-- HUMAN VERIFICATION GATE -->
+    <div id="humanVerificationGate"
+         aria-modal="true"
+         role="dialog"
+         aria-label="Human verification">
+
+        <div class="hv-panel">
+            <div class="hv-icon-wrap">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h2>Human Verification</h2>
+
+            <p id="hvStatus">
+                Starting human verification...
+            </p>
+
+            <div class="hv-camera">
+                <video id="hvWebcam" autoplay muted playsinline></video>
+                <canvas id="hvOverlay"></canvas>
+            </div>
+
+            <div class="hv-progress">
+                <div id="hvProgressBar"></div>
+            </div>
+
+            <div id="hvResult" class="hv-result hv-checking">
+                Checking human presence...
+            </div>
+
+            <p class="hv-privacy">
+                Verification is processed locally in your browser.
+                No face image or biometric data is stored.
+            </p>
+        </div>
+    </div>
+
+    <style>
+        /* =========================================================
+           HUMAN VERIFICATION GATE
+           ========================================================= */
+
+        html.hv-locked,
+        html.hv-locked body {
+            overflow: hidden !important;
+        }
+
+        #humanVerificationGate {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(37, 99, 235, .14),
+                    transparent 42%
+                ),
+                #050816;
+
+            opacity: 1;
+            visibility: visible;
+
+            transition:
+                opacity .55s ease,
+                visibility .55s ease;
+        }
+
+        #humanVerificationGate.hv-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .hv-panel {
+            width: min(94vw, 470px);
+            padding: 28px;
+
+            text-align: center;
+
+            border-radius: 24px;
+
+            background: rgba(15, 23, 42, .82);
+            border: 1px solid rgba(96, 165, 250, .18);
+
+            box-shadow:
+                0 30px 100px rgba(0, 0, 0, .55),
+                0 0 60px rgba(37, 99, 235, .08);
+
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+        }
+
+        .hv-icon-wrap {
+            width: 58px;
+            height: 58px;
+
+            margin: 0 auto 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(59, 130, 246, .12);
+            border: 1px solid rgba(96, 165, 250, .22);
+
+            color: #60a5fa;
+            font-size: 23px;
+
+            box-shadow: 0 0 35px rgba(59, 130, 246, .10);
+        }
+
+        .hv-panel h2 {
+            margin: 0;
+
+            color: #fff;
+
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        #hvStatus {
+            min-height: 22px;
+
+            margin: 9px 0 18px;
+
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .hv-camera {
+            position: relative;
+
+            width: 100%;
+            aspect-ratio: 4 / 3;
+
+            overflow: hidden;
+
+            border-radius: 16px;
+
+            background: #020617;
+
+            border: 1px solid rgba(148, 163, 184, .15);
+        }
+
+        #hvWebcam {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            transform: scaleX(-1);
+        }
+
+        #hvOverlay {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
+
+            transform: scaleX(-1);
+        }
+
+        .hv-progress {
+            width: 100%;
+            height: 4px;
+
+            margin-top: 16px;
+
+            overflow: hidden;
+
+            border-radius: 10px;
+
+            background: rgba(148, 163, 184, .12);
+        }
+
+        #hvProgressBar {
+            width: 0%;
+            height: 100%;
+
+            background: #60a5fa;
+
+            transition: width .18s ease;
+        }
+
+        .hv-result {
+            margin-top: 13px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            letter-spacing: .02em;
+        }
+
+        .hv-checking {
+            color: #facc15;
+        }
+
+        .hv-success {
+            color: #4ade80;
+        }
+
+        .hv-error {
+            color: #f87171;
+        }
+
+        .hv-privacy {
+            margin: 14px 0 0;
+
+            color: #64748b;
+
+            font-size: 11px;
+            line-height: 1.55;
+        }
+
+        @media (max-width: 480px) {
+            .hv-panel {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .hv-panel h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
@@ -942,6 +1189,246 @@
         </div>
 
     </footer>
+
+
+
+    <!-- SIMPLE FAST HUMAN VERIFICATION -->
+    <script>
+        (() => {
+            const MODEL_URL =
+                "https://justadudewhohacks.github.io/face-api.js/models";
+
+            const gate =
+                document.getElementById("humanVerificationGate");
+
+            const video =
+                document.getElementById("hvWebcam");
+
+            const canvas =
+                document.getElementById("hvOverlay");
+
+            const ctx =
+                canvas.getContext("2d");
+
+            const status =
+                document.getElementById("hvStatus");
+
+            const result =
+                document.getElementById("hvResult");
+
+            const progress =
+                document.getElementById("hvProgressBar");
+
+            let stream = null;
+            let detecting = false;
+            let goodFrames = 0;
+            let unlocked = false;
+
+            const REQUIRED_FRAMES = 5;
+
+            function setStatus(text) {
+                status.textContent = text;
+            }
+
+            function setResult(text, type) {
+                result.textContent = text;
+                result.className =
+                    "hv-result " + type;
+            }
+
+            async function init() {
+                try {
+                    setStatus("Loading human detection AI...");
+
+                    await faceapi.nets.ssdMobilenetv1.loadFromUri(
+                        MODEL_URL
+                    );
+
+                    setStatus("Starting camera...");
+
+                    stream =
+                        await navigator.mediaDevices.getUserMedia({
+                            video: {
+                                width: { ideal: 640 },
+                                height: { ideal: 480 },
+                                facingMode: "user"
+                            },
+                            audio: false
+                        });
+
+                    video.srcObject = stream;
+
+                    await video.play();
+
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+
+                    setStatus("Look at the camera...");
+                    setResult(
+                        "CHECKING HUMAN PRESENCE...",
+                        "hv-checking"
+                    );
+
+                    detecting = true;
+                    detect();
+
+                } catch (error) {
+                    console.error(error);
+
+                    setStatus(
+                        "Camera access is required to continue."
+                    );
+
+                    setResult(
+                        "CAMERA ACCESS REQUIRED",
+                        "hv-error"
+                    );
+                }
+            }
+
+            async function detect() {
+                if (!detecting || unlocked) {
+                    return;
+                }
+
+                try {
+                    const detection =
+                        await faceapi.detectSingleFace(
+                            video,
+                            new faceapi.SsdMobilenetv1Options({
+                                minConfidence: 0.55
+                            })
+                        );
+
+                    ctx.clearRect(
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height
+                    );
+
+                    if (!detection) {
+                        goodFrames = 0;
+
+                        progress.style.width = "0%";
+
+                        setStatus(
+                            "Looking for a human..."
+                        );
+
+                        setResult(
+                            "NO HUMAN DETECTED",
+                            "hv-checking"
+                        );
+
+                        setTimeout(detect, 100);
+                        return;
+                    }
+
+                    goodFrames++;
+
+                    const box = detection.box;
+
+                    ctx.strokeStyle = "#60a5fa";
+                    ctx.lineWidth = 3;
+
+                    ctx.strokeRect(
+                        box.x,
+                        box.y,
+                        box.width,
+                        box.height
+                    );
+
+                    const percentage =
+                        Math.min(
+                            100,
+                            (goodFrames /
+                                REQUIRED_FRAMES) *
+                                100
+                        );
+
+                    progress.style.width =
+                        percentage + "%";
+
+                    if (
+                        goodFrames >=
+                        REQUIRED_FRAMES
+                    ) {
+                        unlock();
+                        return;
+                    }
+
+                    setStatus(
+                        "Face detected. Verifying..."
+                    );
+
+                    setResult(
+                        "VERIFYING...",
+                        "hv-checking"
+                    );
+
+                    setTimeout(detect, 100);
+
+                } catch (error) {
+                    console.error(
+                        "Face detection error:",
+                        error
+                    );
+
+                    setTimeout(detect, 150);
+                }
+            }
+
+            function unlock() {
+                unlocked = true;
+                detecting = false;
+
+                setStatus(
+                    "Human verified. Welcome."
+                );
+
+                setResult(
+                    "✓ HUMAN VERIFIED",
+                    "hv-success"
+                );
+
+                progress.style.width = "100%";
+
+                if (stream) {
+                    stream.getTracks().forEach(
+                        track => track.stop()
+                    );
+                }
+
+                setTimeout(() => {
+                    gate.classList.add("hv-hidden");
+
+                    document.documentElement.classList.remove(
+                        "hv-locked"
+                    );
+
+                    setTimeout(() => {
+                        gate.remove();
+                    }, 600);
+                }, 450);
+            }
+
+            /*
+             * Start immediately. The portfolio is already
+             * covered by the verification gate.
+             */
+            if (
+                typeof faceapi !== "undefined"
+            ) {
+                init();
+            } else {
+                window.addEventListener(
+                    "load",
+                    init
+                );
+            }
+        })();
+    </script>
 
 </body>
 </html>
